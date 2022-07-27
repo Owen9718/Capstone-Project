@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form id="login" method="POST">
+            {{ form.hidden_tag() }}
+            <!--add type=hidden form fields -->
+
+            {% for field in form
+            if field.widget.input_type != 'hidden' %}
+
+            <p class="text">
+
+                {{ field }}
+                <span></span>
+                {{ field.label }}
+
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+
+            {% endfor %}
+
+
+            <button class='login' type="submit">Login</button>
+            <h3 class="sign_link">Not A Member? <a href="/signup">Sign Up</a></h3>
+        </form>
+
+    </div>
+</body>
+
+</html>

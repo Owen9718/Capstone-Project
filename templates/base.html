@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} {%endblock%}</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+<body>
+    <div class="nav_div">
+        <header>
+            <nav class="nav_bar">
+                <ul class="nav_list">
+                    <li><a class="nav_atr" href='/saved_recipes'>Saved Recipes</a></li>
+                    <li><a class="nav_atr" href="/home">Home</a></li>
+                    <li><a class="nav_atr" href="/signout">Signout</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    {%block content%} {%endblock%}
+</body>
+
+</html>

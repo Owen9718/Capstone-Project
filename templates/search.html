@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form id="search" method="POST" class="form_search">
+        {{ form.hidden_tag() }}
+        <!--add type=hidden form fields -->
+
+        {% for field in form
+        if field.widget.input_type != 'hidden' %}
+
+        <p class="search_form">
+            {{ field }}
+
+            {% for error in field.errors %}
+            {{ error }}
+            {% endfor %}
+            <button type="submit"><img
+                    src="https://icon-library.com/images/search-icon-jpg/search-icon-jpg-5.jpg"></button>
+        </p>
+        {% endfor %}
+
+    </form>
+
+    {% if response %}
+    <ul class="recipes">
+        {% for results in response['results'] %}
+
+        <li>
+            <img src="{{results['image']}}" alt="">
+            <a href="/search/{{results.id}}">{{results['title']}}</a>
+        </li>
+
+
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</div>
+{%endblock%}

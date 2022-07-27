@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Sign Up!</h1>
+        {% for msg in get_flashed_messages() %}
+        <p class="message">{{ msg }}</p>
+        {% endfor %}
+        <form id="signup" method="POST">
+            {{ form.hidden_tag() }}
+            <!--add type=hidden form fields -->
+
+            {% for field in form
+            if field.widget.input_type != 'hidden' %}
+
+            <p class="text">
+
+                {{ field }}
+                <span></span>
+                {{ field.label }}
+
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+
+            {% endfor %}
+
+            <button class="login" type="submit">Sign up</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

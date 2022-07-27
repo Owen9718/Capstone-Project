@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+<div class="recipe_back">
+<h2>Saved Recipes</h2>
+<form method="post">
+    <ul class="recipe_info">
+        {%for recipe in recipes%}
+
+        <li><a href="/search/{{recipe.recipe_id}}">{{recipe.recipe_title}}</a>
+            <button name='recipe_id' id="{{recipe.recipe_id}}" type="submit"
+                value="{{recipe.recipe_id}}">Delete</button>
+        </li>
+        {%endfor%}
+    </ul>
+</form>
+</div>
+{%endblock%}
