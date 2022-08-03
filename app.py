@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, flash, redirect, session
 from models import db, connect_db,User,Saved_Recipe
 from forms import LoginUser,Search
 import requests
-from config import headers,secret_api
+import os
 
 app = Flask(__name__)
 
@@ -16,6 +16,9 @@ app.config["SECRET_KEY"] = "capstone"
 
 
 connect_db(app)
+
+secret_api = os.environ.get('secret_api')
+
 
 search_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
 
