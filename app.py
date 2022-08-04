@@ -18,7 +18,14 @@ app.config["SECRET_KEY"] = "capstone"
 connect_db(app)
 
 secret_api = os.environ.get('secret_api')
+rapid_api_key = os.environ.get('X-RapidAPI-Key')
+rapid_host = os.environ.get('X-RapidAPI-Host')
 
+headers ={ 
+    'X-RapidAPI-Key': rapid_api_key,
+    'X-RapidAPI-Host': rapid_host
+
+}
 
 search_url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
 
